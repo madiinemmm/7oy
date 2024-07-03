@@ -10,8 +10,9 @@ import toast from "react-hot-toast";
 
 import { useGoogle } from "../hooks/useGoogle";
 
+
 function themeFromLocalStorage() {
-  return localStorage.getItem("theme") || "winter";
+  return localStorage.getItem("theme") || "light";
 }
 
 export const action = async ({ request }) => {
@@ -33,7 +34,7 @@ function Login() {
 
   const [theme, setTheme] = useState(themeFromLocalStorage());
   const handleTheme = () => {
-    const newTheme = theme == "winter" ? "dracula" : "winter";
+    const newTheme = theme == "light" ? "dark" : "light";
     setTheme(newTheme);
   };
 
@@ -80,13 +81,13 @@ function Login() {
         loop
         muted
         className=" bg-cover h-screen absolute -z-10 opacity-70 object-cover w-full "
-        src="/bg-registor.mp4"
+        src='./bg-video.mp4'
       ></video>
       <div className="grid">
         <div className="grid place-items-center min-h-screen">
           <Form
             method="post"
-            className="flex flex-col items-center gap-4 card bg-base-100 w-96 shadow-xl p-5"
+            className="flex flex-col items-center gap-4 card bg-base-100 w-96 shadow-2xl p-5"
           >
             <h1 className="text-4xl font-semibold">Login</h1>
             <FormInput
